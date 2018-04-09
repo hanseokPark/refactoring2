@@ -29,9 +29,6 @@ public class Customer {
 	
 		//비디오 종류별 대여료 계산
 		for(Rental each:rentals) {
-			//비디오 종류별 대여료 계산 함수 호출
-			double thisAmount = each.getCharge();
-			
 			
 			//적립포인트를 1포인트 증가
 			frequentRenterPoints++;
@@ -42,10 +39,10 @@ public class Customer {
 			
 			//이번에 대여한느 비디오 정보와 대여료를 출력
 			result.append("\t"+each.getMovie().getTitle());
-			result.append("\t"+String.valueOf(thisAmount)+"\n");
+			result.append("\t"+String.valueOf(each.getCharge())+"\n");
 			
 			//현재까지 누적된 총 대여료
-			totalAmount += thisAmount;
+			totalAmount += each.getCharge();
 			
 		}//end of for-loop
 		
