@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
+javadoc{
+    options.encoding = 'UTF-8'
+}
+
+jar{
+	version = 1.0
+	mainClassName = 'refactoring.TestMain'
+	baseName = 'Refactor'
+	appendix = 'bin'
+	manifest{
+		    attributes 'Title':baseName, 'Version':version, 'Main-Class':mainClassName
+		    
+		}
+		dependsOn configurations.runtime
+
+
+}
+
+repositories {
+   
+    jcenter()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.10.0'	
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+

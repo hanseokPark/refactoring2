@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Title: Refactor
+Version: 1.0
+Main-Class: refactoring.TestMain
+
