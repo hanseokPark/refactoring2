@@ -30,12 +30,9 @@ public class Customer {
 		//비디오 종류별 대여료 계산
 		for(Rental each:rentals) {
 			
-			//적립포인트를 1포인트 증가
-			frequentRenterPoints++;
+			
 			//최신물을 이틀 이상 대여하면 보너스 포인트 지급
-			if((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) 
-					&& each.getDaysRented() > 1)
-				frequentRenterPoints++;
+			frequentRenterPoints += each.getFrequentRenterPoints();
 			
 			//이번에 대여한느 비디오 정보와 대여료를 출력
 			result.append("\t"+each.getMovie().getTitle());
