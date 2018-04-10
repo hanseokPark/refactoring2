@@ -13,6 +13,8 @@ public class TestMain {
 		Movie mn1 = new Movie("곡성", Movie.NEW_RELEASE);
 		Movie mn2 = new Movie("인디펜던스", Movie.NEW_RELEASE);
 		
+		Movie ma1 = new Movie("제임스 본드", Movie.ACTION);
+		
 		Rental r1 = new Rental(mc1,3);
 		Rental r2 = new Rental(mc2,4);
 		Rental r3 = new Rental(mr1,2);
@@ -20,10 +22,13 @@ public class TestMain {
 		Rental r5 = new Rental(mn1,2);
 		Rental r6 = new Rental(mn2,3);
 		
+		Rental r7 = new Rental(ma1,2);
+		
 		Customer c = new Customer("김주하");
 		c.addRental(r1);
 		c.addRental(r3);
 		c.addRental(r5);
+		c.addRental(r7);
 		
 		Customer c1 = new Customer("김희영");
 		c1.addRental(r2);

@@ -1,58 +1,59 @@
 package refactoring.chap16;
 
+import refactoring.chap16_price.Action;
+import refactoring.chap16_price.Children;
+import refactoring.chap16_price.NewRelease;
+import refactoring.chap16_price.Price;
+import refactoring.chap16_price.Regular;
+
 public class Movie {
 	public static final int REGULAR = 0;
 	public static final int NEW_RELEASE = 1;
 	public static final int CHILDRENS = 2;
+	public static final int ACTION = 3;
 	
 	private String title;
-	private int priceCode;
+	private Price price;
+	
 
 	public Movie(String title, int priceCode) {
 		this.title = title;
-		this.priceCode = priceCode;
+		setPriceCode(priceCode);
 	}
 	
 	public int getPriceCode() {
-		return priceCode;
+		return price.getPriceCode();
 	}
 	
-	public void setPriceCode(int priceCode) {
-		this.priceCode = priceCode;
+	public void setPriceCode(int apriceCode) {
+		switch(apriceCode) {
+		case REGULAR:
+			price = new Regular();
+			break;
+		case CHILDRENS:
+			price = new Children();
+			break;
+		case NEW_RELEASE:
+			price = new NewRelease();
+			break;
+		case ACTION:
+			price = new Action();
+			break;
+		default :
+			throw new IllegalArgumentException("가격 코드가 잘못되었습니다.");
+		}
 	}
 	
 	public String getTitle() {
 		return title;
 	}
 
-	double getCharge(int aDaysRented) {
-		double result  = 0;
-		
-		switch(getPriceCode()) {
-		case Movie.REGULAR:
-			result += 2;
-			if(aDaysRented>2)
-				result += (aDaysRented - 2) * 1.5;
-			break;
-		case Movie.NEW_RELEASE:
-			result += aDaysRented * 3;
-			break;
-		case Movie.CHILDRENS:
-			result += 1.5;
-			if(aDaysRented>3)
-			result += (aDaysRented - 3) * 1.5;
-			break;
-		}
-		return result;
+	double getCharge(int aDaysRented) {		
+		return price.getCharge(aDaysRented);
 	}
 
-	int getFrequentRenterPoints(int aDaysRented) {
-		if((getPriceCode() == Movie.NEW_RELEASE) && 
-				aDaysRented > 1) {
-			return 2;
-		}else {
-			return 1;
-		}		
+	public int getFrequentRenterPoints(int aDaysRented) {
+		return price.getFrequentRenterPoints(aDaysRented);
 	}
 	
 }
