@@ -61,7 +61,26 @@ public class Customer {
 		}
 		return result;
 	}
-
+	
+	public String htmlstatement() {	
+		StringBuilder result = new StringBuilder("<H1><EM>" + getName() + " 고객님의 대여 기록</EM></H1><P>\n");	
+	
+		//비디오 종류별 대여료 계산
+		for(Rental each:rentals) {
+			result.append(each.getMovie().getTitle() + ": ");
+			result.append(String.valueOf(each.getCharge())+"<br>\n");	
+			
+		}//end of for-loop
+		
+		result.append("<p>누적 대여료 : <EM>");		
+		result.append(String.valueOf(getTotalCharge()) + "</Em>\n");
+		
+		result.append("<p>적립 포인트 : <EM>");		
+		result.append(String.valueOf(getFrequentRenterPoints()) + "</Em>\n");
+		
+		return result.toString();
+	}//end of method statement
+	
 }
 
 

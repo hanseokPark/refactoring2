@@ -34,6 +34,9 @@ public class TestMain {
 		System.out.println();
 		System.out.println(c1.statement());
 		
+		System.out.println(c.htmlstatement());
+		System.out.println();
+		System.out.println(c1.htmlstatement());
 		
 	}
 }
