@@ -26,4 +26,10 @@ public class Regular extends Price {
 		return 1;
 	}
 
+	public static Price getInstance() {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
 }

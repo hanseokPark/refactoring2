@@ -28,4 +28,9 @@ public class NewRelease extends Price {
 		return aDaysRented>1?2:1;
 	}
 
+	public static Price getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

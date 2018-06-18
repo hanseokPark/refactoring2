@@ -6,8 +6,8 @@ import refactoring.chap16.Rental;
 
 public class TestMain {
 	public static void main(String[] args) {
-		Movie mc1 = new Movie("니모를 찾아서", Movie.CHILDRENS);
-		Movie mc2 = new Movie("말레피센트", Movie.CHILDRENS);
+		Movie mc1 = new Movie("니모를 찾아서", Movie.CHILDREN);
+		Movie mc2 = new Movie("말레피센트", Movie.CHILDREN);
 		Movie mr1 = new Movie("명량", Movie.REGULAR);
 		Movie mr2 = new Movie("변호사", Movie.REGULAR);
 		Movie mn1 = new Movie("곡성", Movie.NEW_RELEASE);

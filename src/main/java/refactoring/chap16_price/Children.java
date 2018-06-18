@@ -6,7 +6,7 @@ public class Children extends Price {
 
 	@Override
 	public int getPriceCode() {
-		return Movie.CHILDRENS;
+		return Movie.CHILDREN;
 	}
 
 	@Override
@@ -25,6 +25,11 @@ public class Children extends Price {
 	public int getFrequentRenterPoints(int aDaysRented) {
 		// TODO Auto-generated method stub
 		return 1;
+	}
+
+	public static Price getInstance() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
